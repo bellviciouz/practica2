@@ -22,7 +22,6 @@ angular.module('starter.controllers', [])
             $scope.statusMessage = "Error: " + error.message;
         })
      
-     
    }
    
    
