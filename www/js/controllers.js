@@ -18,6 +18,13 @@ angular.module('starter.controllers', [])
      $cordovaSQLite.execute(db, 'INSERT INTO personas (nombre,apellido,telefono,email) VALUES (?,?,?,?)', [persona.nombre,persona.apellido,persona.telefono,persona.email])
         .then(function(result) {
             $scope.statusMessage = "Registro guardado";
+             var alertPopup = $ionicPopup.alert({
+       title: 'Agenda',
+       template: 'Datos almacenados'
+     });
+            
+            
+            
         }, function(error) {
             $scope.statusMessage = "Error: " + error.message;
         })
