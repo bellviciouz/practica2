@@ -8,6 +8,10 @@ var db;
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
+
+
+
+
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngCordova'])
 
 .run(function($ionicPlatform,$cordovaSQLite) {
@@ -93,3 +97,19 @@ $cordovaSQLite.execute(db, 'CREATE TABLE IF NOT EXISTS personas (id INTEGER PRIM
   $urlRouterProvider.otherwise('/tab/dash');
 
 });
+
+
+
+
+
+$scope.guardar = function(persona) {
+ 
+  $cordovaSQLite.execute(db, 'INSERT INTO personas (nombre,apellido,telefono,email) VALUES (?,?,?,?)', [persona.nombre,persona.apellido,persona.telefono,persona.email])
+        .then(function(result) {
+            $scope.statusMessage = "Registro guardado";
+    
+        }, function(error) {
+            $scope.statusMessage = "Error: " + error.message;
+        })
+ 
+}
