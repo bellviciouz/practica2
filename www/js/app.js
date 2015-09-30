@@ -30,11 +30,23 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     
     
   //aqui empieza mi codigo
-db = $cordovaSQLite.openDB("agenda.db");
+
+
+
+if(window.cordova) {
+      // App syntax
+      db = $cordovaSQLite.openDB("agenda.db");
+    } else {
+      // Ionic serve syntax
+      db = window.openDatabase("agenda.db", "1", "My app", -1);
+    }
 $cordovaSQLite.execute(db, 'CREATE TABLE IF NOT EXISTS personas (id INTEGER PRIMARY KEY AUTOINCREMENT, nombre varchar(255), apellido varchar(255), telefono varchar(255), email varchar(255))');
   
       
   });
+  
+  
+  
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
@@ -100,9 +112,15 @@ $cordovaSQLite.execute(db, 'CREATE TABLE IF NOT EXISTS personas (id INTEGER PRIM
 
 
 
-
+/*
 
 $scope.guardar = function(persona) {
+  
+     var alertPopup = $ionicPopup.alert({
+       title: 'Agenda',
+       template: 'Datos almacenados'
+     });
+ 
  
   $cordovaSQLite.execute(db, 'INSERT INTO personas (nombre,apellido,telefono,email) VALUES (?,?,?,?)', [persona.nombre,persona.apellido,persona.telefono,persona.email])
         .then(function(result) {
@@ -113,3 +131,4 @@ $scope.guardar = function(persona) {
         })
  
 }
+*/

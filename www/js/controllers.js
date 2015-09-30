@@ -1,6 +1,6 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['ionic','ngCordova'])
 
-.controller('DashCtrl', function($scope,$ionicPopup) {
+.controller('DashCtrl', function($scope,$ionicPopup,$cordovaSQLite) {
     
    $scope.showAlert = function() {
      var alertPopup = $ionicPopup.alert({
@@ -21,14 +21,32 @@ angular.module('starter.controllers', [])
      });
      
      */
-         $cordovaSQLite.execute(db, 'INSERT INTO personas (nombre,apellido,telefono,email) VALUES (?,?,?,?)', [persona.nombre,persona.apellido,persona.telefono,persona.email])
+         if(window.cordova) {
+      // App syntax
+      db = $cordovaSQLite.openDB("agenda.db");
+    } else {
+      // Ionic serve syntax
+      db = window.openDatabase("agenda.db", "1", "My app", -1);
+    }
+$cordovaSQLite.execute(db, 'CREATE TABLE IF NOT EXISTS personas (id INTEGER PRIMARY KEY AUTOINCREMENT, nombre varchar(255), apellido varchar(255), telefono varchar(255), email varchar(255))');
+  
+        $cordovaSQLite.execute(db, 'INSERT INTO personas (nombre,apellido,telefono,email) VALUES (?,?,?,?)', [persona.nombre,persona.apellido,persona.telefono,persona.email])
         .then(function(result) {
             $scope.statusMessage = "Registro guardado";
+             
+             
+             
+             var alertPopup = $ionicPopup.alert({
+       title: 'Agenda',
+       template: 'Datos almacenados'
+     });
+     
+     
+     
     
         }, function(error) {
             $scope.statusMessage = "Error: " + error.message;
         })
-        
          
      
    }
