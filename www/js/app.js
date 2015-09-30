@@ -23,18 +23,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       // org.apache.cordova.statusbar required
       StatusBar.styleLightContent();
     }
-  });
   
   
   //aqui empieza mi codigo
-  
- db = $cordovaSQLite.openDB("agenda.db");
+db = $cordovaSQLite.openDB("agenda.db");
  $cordovaSQLite.execute(db, 'CREATE TABLE IF NOT EXISTS personas (id INTEGER PRIMARY KEY AUTOINCREMENT, nombre varchar(255), apellido varchar(255), telefono varchar(255), email varchar(255))');
- 
   
-  
-  
-  
+      
+  });
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
