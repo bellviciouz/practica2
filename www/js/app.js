@@ -12,9 +12,9 @@ var db;
 
 
 
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngCordova'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services' /*, 'ngCordova' */])
 
-.run(function($ionicPlatform,$cordovaSQLite) {
+.run(function($ionicPlatform/*,$cordovaSQLite*/) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -32,7 +32,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   //aqui empieza mi codigo
 
 
-
+/*
 if(window.cordova) {
       // App syntax
       db = $cordovaSQLite.openDB("agenda.db");
@@ -41,7 +41,7 @@ if(window.cordova) {
       db = window.openDatabase("agenda.db", "1", "My app", -1);
     }
 $cordovaSQLite.execute(db, 'CREATE TABLE IF NOT EXISTS personas (id INTEGER PRIMARY KEY AUTOINCREMENT, nombre varchar(255), apellido varchar(255), telefono varchar(255), email varchar(255))');
-  
+  */
       
   });
   

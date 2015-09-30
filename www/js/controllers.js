@@ -36,7 +36,7 @@ $cordovaSQLite.execute(db, 'CREATE TABLE IF NOT EXISTS personas (id INTEGER PRIM
              
              
              
-             var alertPopup = $ionicPopup.alert({
+        var alertPopup = $ionicPopup.alert({
        title: 'Agenda',
        template: 'Datos almacenados'
      });
@@ -48,6 +48,9 @@ $cordovaSQLite.execute(db, 'CREATE TABLE IF NOT EXISTS personas (id INTEGER PRIM
             $scope.statusMessage = "Error: " + error.message;
         })
          
+     
+     
+     
      
    }
    
