@@ -1,6 +1,6 @@
 var db;
 
-angular.module('starter.controllers', ['ionic','ngCordova'])
+angular.module('starter.controllers', [/*'ionic','ngCordova'*/])
 
 .controller('DashCtrl', function($scope,$ionicPopup,$cordovaSQLite) {
     
@@ -76,6 +76,8 @@ $cordovaSQLite.execute(db, 'CREATE TABLE IF NOT EXISTS personas (id INTEGER PRIM
       // Ionic serve syntax
       db = window.openDatabase("agenda.db", "1", "My app", -1);
     }
+    
+    $scope.chats = []
 $cordovaSQLite.execute(db, 'SELECT * FROM personas ORDER BY id DESC')
             .then(
                 function(result) {
@@ -84,7 +86,11 @@ $cordovaSQLite.execute(db, 'SELECT * FROM personas ORDER BY id DESC')
  			for(var i=0;i<result.rows.length;i++)
 			{
 			
-			$scope.chats = result.rows.item(i).apellido;
+			$scope.chats.push({ "nombre":result.rows.item(i).nombre, 
+			    "apellido":result.rows.item(i).apellido,
+			    "telefono":result.rows.item(i).telefono,
+			    "email":result.rows.item(i).email
+			    });
                         }
                     }
                 },
