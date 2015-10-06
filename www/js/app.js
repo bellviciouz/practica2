@@ -31,15 +31,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services' , 
     
   //aqui empieza mi codigo
 
-var startMs = (new Date).getTime();
-while(!window.sqlitePlugin){
-console.log('waiting');
-var currentMs = (new Date).getTime();
-if( (currentMs - startMs) > 3000){
-alert('timed out waiting for database');
-break;
-}
-}
+
 
 if(window.cordova) {
       // App syntax
