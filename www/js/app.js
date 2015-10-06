@@ -31,7 +31,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services' , 
     
   //aqui empieza mi codigo
 
-
+var startMs = (new Date).getTime();
+while(!window.sqlitePlugin){
+console.log('waiting');
+var currentMs = (new Date).getTime();
+if( (currentMs - startMs) > 3000){
+alert('timed out waiting for database');
+break;
+}
+}
 
 if(window.cordova) {
       // App syntax
@@ -41,11 +49,11 @@ if(window.cordova) {
       db = window.openDatabase("agenda.db", "1", "My app", -1);
     }
 $cordovaSQLite.execute(db, 'CREATE TABLE IF NOT EXISTS personas (id INTEGER PRIMARY KEY AUTOINCREMENT, nombre varchar(255), apellido varchar(255), telefono varchar(255), email varchar(255))');
-  
+    
       
   });
   
-  
+
   
 })
 
