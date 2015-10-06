@@ -23,13 +23,13 @@ angular.module('starter.controllers', [/*'ionic','ngCordova'*/])
      });
      
      */
-         if(window.cordova) {
+        // if(window.cordova) {
       // App syntax
-      db = $cordovaSQLite.openDB("agenda.db");
-    } else {
+      //db = $cordovaSQLite.openDB("agenda.db");
+    //} else {
       // Ionic serve syntax
-      db = window.openDatabase("agenda.db", "1", "My app", -1);
-    }
+      //db = window.openDatabase("agenda.db", "1", "My app", -1);
+    //}
 $cordovaSQLite.execute(db, 'CREATE TABLE IF NOT EXISTS personas (id INTEGER PRIMARY KEY AUTOINCREMENT, nombre varchar(255), apellido varchar(255), telefono varchar(255), email varchar(255))');
   
         $cordovaSQLite.execute(db, 'INSERT INTO personas (nombre,apellido,telefono,email) VALUES (?,?,?,?)', [persona.nombre,persona.apellido,persona.telefono,persona.email])
@@ -69,13 +69,14 @@ $cordovaSQLite.execute(db, 'CREATE TABLE IF NOT EXISTS personas (id INTEGER PRIM
   //
   //$scope.$on('$ionicView.enter', function(e) {
   //});
-     if(window.cordova) {
+  
+  //   if(window.cordova) {
       // App syntax
-      db = $cordovaSQLite.openDB("agenda.db");
-    } else {
+    //  db = $cordovaSQLite.openDB("agenda.db");
+//    } else {
       // Ionic serve syntax
-      db = window.openDatabase("agenda.db", "1", "My app", -1);
-    }
+  //    db = window.openDatabase("agenda.db", "1", "My app", -1);
+//    }
     
     $scope.chats = []
 $cordovaSQLite.execute(db, 'SELECT * FROM personas ORDER BY id DESC')
