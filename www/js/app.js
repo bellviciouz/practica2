@@ -32,8 +32,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services' , 
   //aqui empieza mi codigo
 
 
-if(window.cordova || window.PhoneGap ||window.device &&Cordova.available) {
+if(window.cordova) {
       // App syntax
+       onDeviceReady();
       db = $cordovaSQLite.openDB("agenda.db");
     } else {
       // Ionic serve syntax
