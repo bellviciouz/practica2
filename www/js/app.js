@@ -32,14 +32,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services' , 
   //aqui empieza mi codigo
 
 
-
-//if(window.cordova) {
+if(window.cordova) {
       // App syntax
       db = $cordovaSQLite.openDB("agenda.db");
- //   } else {
+    } else {
       // Ionic serve syntax
-  //    db = window.openDatabase("agenda.db", "1", "My app", -1);
-    //}
+      db = window.openDatabase("agenda.db", "1", "My app", -1);
+    }
 $cordovaSQLite.execute(db, 'CREATE TABLE IF NOT EXISTS personas (id INTEGER PRIMARY KEY AUTOINCREMENT, nombre varchar(255), apellido varchar(255), telefono varchar(255), email varchar(255))');
     
       
