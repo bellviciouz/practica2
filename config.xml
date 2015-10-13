@@ -15,6 +15,7 @@
   <preference name="android-minSdkVersion" value="16"/>
   <preference name="BackupWebStorage" value="none"/>
     <preference name="LoadUrlTimeoutValue" value="999999999"/>
+    <gap:plugin name="com.brodysoft.sqliteplugin" version="1.0.6" />
   <feature name="StatusBar">
     <param name="ios-package" value="CDVStatusBar" onload="true"/>
   </feature>
