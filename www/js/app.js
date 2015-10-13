@@ -14,8 +14,9 @@ var db;
 
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services' , 'ngCordova' ])
 
-.run(function($ionicPlatform,$cordovaSQLite) {
+.run(function($ionicPlatform,$cordovaSQLite,$ionicLoading) {
   $ionicPlatform.ready(function() {
+       $ionicLoading.show({ template: 'Loading...' });
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
