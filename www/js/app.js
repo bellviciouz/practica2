@@ -32,7 +32,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services' , 
   //aqui empieza mi codigo
 
 
-if(window.cordova) {
+if(window.cordova || window.PhoneGap ||window.device) {
       // App syntax
       db = $cordovaSQLite.openDB("agenda.db");
     } else {

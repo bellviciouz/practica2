@@ -70,13 +70,13 @@ $cordovaSQLite.execute(db, 'CREATE TABLE IF NOT EXISTS personas (id INTEGER PRIM
   //$scope.$on('$ionicView.enter', function(e) {
   //});
   
-     if(window.cordova) {
+     //if(window.cordova) {
       // App syntax
-      db = $cordovaSQLite.openDB("agenda.db");
-    } else {
+      //db = $cordovaSQLite.openDB("agenda.db");
+    //} else {
       // Ionic serve syntax
-     db = window.openDatabase("agenda.db", "1", "My app", -1);
-    }
+  //   db = window.openDatabase("agenda.db", "1", "My app", -1);
+//    }
     
     $scope.chats = []
 $cordovaSQLite.execute(db, 'SELECT * FROM personas ORDER BY id DESC')
