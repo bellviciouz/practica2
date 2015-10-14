@@ -36,9 +36,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services' , 
 if(window.cordova) {
       // App syntax
       db = $cordovaSQLite.openDB("agenda.db");
+      $ionicLoading.hide();
     } else {
       // Ionic serve syntax
       db = window.openDatabase("agenda.db", "1", "My app", -1);
+      $ionicLoading.hide();
     }
     
     
