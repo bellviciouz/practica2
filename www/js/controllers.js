@@ -78,7 +78,25 @@ $cordovaSQLite.execute(db, 'CREATE TABLE IF NOT EXISTS personas (id INTEGER PRIM
   //   db = window.openDatabase("agenda.db", "1", "My app", -1);
 //    }
     
-    $scope.chats = []
+    
+    
+    $scope.chats = Chats.all();
+    
+    
+    $scope.getAll = function()
+  {
+      $scope.chats = Chats.all();
+  };
+  
+  $scope.remove = function(chat) {
+    Chats.remove(chat);
+  };
+    
+    
+    
+    
+    
+    /*
 $cordovaSQLite.execute(db, 'SELECT * FROM personas ORDER BY id DESC')
             .then(
                 function(result) {
@@ -99,6 +117,16 @@ $cordovaSQLite.execute(db, 'SELECT * FROM personas ORDER BY id DESC')
                     $scope.statusMessage = "Error on loading: " + error.message;
                 }
             );
+       */     
+            
+            
+
+            
+            
+            
+            
+            
+            
   //$scope.chats = Chats.all();
   //$scope.remove = function(chat) {
 //    Chats.remove(chat);
